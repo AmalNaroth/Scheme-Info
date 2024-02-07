@@ -3,8 +3,8 @@ import 'package:schemeinfo_demo/presentation/widgets/custom_text_widget.dart';
 
 Widget buildHolidayTable({required holidayData}) {
   return Container(
-    decoration: const BoxDecoration(color: Colors.white, boxShadow: [
-      BoxShadow(color: Colors.grey, blurRadius: 5, spreadRadius: 1)
+    decoration:  BoxDecoration(color: Colors.white, boxShadow: [
+      BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 5, spreadRadius: 2)
     ]),
     child: Table(
       border: TableBorder.all(
@@ -19,7 +19,7 @@ Widget buildHolidayTable({required holidayData}) {
           children: [
             TableCell(
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: CustomTextWidget01(
                     textValue: "Target Point",
                     fontColors: Colors.white,
@@ -28,7 +28,7 @@ Widget buildHolidayTable({required holidayData}) {
             ),
             TableCell(
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: CustomTextWidget01(
                     textValue: "Target Reward",
                     fontColors: Colors.white,

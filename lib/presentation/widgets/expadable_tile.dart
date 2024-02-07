@@ -1,6 +1,3 @@
-
-
-
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:schemeinfo_demo/presentation/widgets/custom_text_widget.dart';
@@ -15,9 +12,9 @@ Widget buildButton(BuildContext context, {required bool isExpanded}) {
   );
 }
 
-class Card2 extends StatelessWidget {
+class ProductCard extends StatelessWidget {
   int index;
-  Card2({required this.index});
+ ProductCard({required this.index});
   @override
   Widget build(BuildContext context) {
     Widget buildCollapsed() {
@@ -48,61 +45,27 @@ class Card2 extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                CustomTextWidget01(
-                  textValue: "Product ##000${index + 1}",
-                  fontWeight: FontWeight.bold,
-                ),
-                RichText(
-                  text: TextSpan(
-                    text: "Main Category  :     ",
-                    style: TextStyle(color: Colors.black),
-                    children: [
-                      TextSpan(
-                        text: "Main- category##00${index + 1}",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                        ), // Add style if needed
-                      ),
-                    ],
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  CustomTextWidget01(
+                    textValue: "Product ##000${index + 1}",
+                    fontWeight: FontWeight.bold,
                   ),
-                ),
-                fhight5,
-                RichText(
-                  text: TextSpan(
-                    text: "Item Category  :     ",
-                    style: TextStyle(color: Colors.black),
-                    children: [
-                      TextSpan(
-                        text: "Item- category##00${index + 1}",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                        ), // Add style if needed
-                      ),
-                    ],
-                  ),
-                ),
-                fhight5,
-                RichText(
-                  text: TextSpan(
-                    text: "Point per item  :     ",
-                    style: TextStyle(color: Colors.black),
-                    children: [
-                      TextSpan(
-                        text: "${index + 1}0",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                        ), // Add style if needed
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+                  fhight10,
+                  featureText02(
+                      firstValue: "Main Category   ",
+                      secondValue: "Main- category##00${index + 1}"),
+                  featureText02(
+                      firstValue: "Item Category   ",
+                      secondValue: "Item- category##00${index + 1}"),
+                  featureText02(
+                      firstValue: "Point per item   ",
+                      secondValue: "${index + 1}0"),
+                  fhight5,
+                ],
+              ),
             ),
             Builder(
               builder: (context) {
@@ -117,8 +80,16 @@ class Card2 extends StatelessWidget {
     }
 
     return ExpandableNotifier(
-      child: Card(
-        clipBehavior: Clip.antiAlias,
+      child: Container(
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                  blurRadius: 5,
+                  spreadRadius: 1,
+                  color: Colors.grey.withOpacity(0.5))
+            ]),
         child: Expandable(
           collapsed: buildCollapsed(),
           expanded: buildExpanded(),

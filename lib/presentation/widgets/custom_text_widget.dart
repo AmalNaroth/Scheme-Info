@@ -21,3 +21,40 @@ class CustomTextWidget01 extends StatelessWidget {
     );
   }
 }
+
+
+
+Widget featureText({
+  required String firstValue,
+  required String secondValue
+}) {
+  return Row(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Expanded(flex: 1, child: Text(firstValue)),
+      Expanded(
+        flex: 3,
+        child: CustomTextWidget01(
+            textValue: ":  $secondValue", fontWeight: FontWeight.bold, fontSize: 14),
+      ),
+    ],
+  );
+}
+
+
+Widget featureText02({
+  required String firstValue,
+  required String secondValue
+}) {
+  return Row(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Expanded(flex: 0, child: Text(firstValue)),
+      Expanded(
+        flex: 1,
+        child: CustomTextWidget01(
+            textValue: ":  $secondValue", fontWeight: FontWeight.bold, fontSize: 14),
+      ),
+    ],
+  );
+}
